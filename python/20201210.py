@@ -1,4 +1,5 @@
 # 初めてのpython
+# 2020-12-10
 # print('Hello word')
 
 # 代入
