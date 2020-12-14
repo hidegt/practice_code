@@ -1,3 +1,6 @@
+# お買い物
+import sys
+
 money = 5000
 print('お財布の中に' + str(money) + '円あります。\nスーパーで果物を買いましょう。')
 
@@ -8,11 +11,13 @@ for fruit, p in zip(fruits,price):
 for fruit, p in zip(fruits,price):
     amount = input(fruit + 'を何個買いますか')
     new_price = int(amount) * p
-    print(fruit + '個、' + str(new_price) + '円')
-
-# 続き
-# 財布残高から合計金額を引いていく
-# ０円になったら
-# 財布がからになりました
-# 財布残高をこしたら
-# お金がたりません
+    print(fruit + amount + '個、' + str(new_price) + '円')
+    if new_price > money:
+        print('お金がたりません。' + fruit + 'を買えませんでした。')
+        sys.exit()
+    elif money - new_price == 0:
+        print('財布が空になりました。買い物を終了します。')
+        sys.exit()
+    else:
+        money = money - new_price
+        print('残金は' + str(money) + '円です。')
